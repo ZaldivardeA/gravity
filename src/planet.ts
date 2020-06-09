@@ -71,7 +71,6 @@ export class Planet {
     this.force.y += forceY;
     otherPlanet.force.x -= forceX;
     otherPlanet.force.y -= forceY;
-    console.log(this.velocity);
   }
 
   private calculateAcceleration = (): void => {

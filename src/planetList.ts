@@ -5,8 +5,9 @@ export class PlanetList {
 
   constructor() {
     this.planets = [
-      new Planet(100, 10, {x:100,y:100}, {x:.4,y:0}),
-      new Planet(100000, 10, {x:500,y:500}, {x:0,y:0})
+      new Planet(1, 10, {x:500,y:60}, {x:2,y:0}),
+      new Planet(10000, 10, {x:500,y:100}, {x:1.58285,y:0}),
+      new Planet(1000000, 10, {x:500,y:500}, {x:0,y:0})
     ];
   }
 
