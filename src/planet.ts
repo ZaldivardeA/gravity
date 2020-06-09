@@ -1,6 +1,6 @@
 import { xyValue } from "./types";
 
-const G: number = 1;
+const G: number = .001;
 
 const getDistance = (distanceX: number, distanceY: number): number => {
   let distance2 = (distanceX ** 2) + (distanceY ** 2);
@@ -71,6 +71,7 @@ export class Planet {
     this.force.y += forceY;
     otherPlanet.force.x -= forceX;
     otherPlanet.force.y -= forceY;
+    console.log(this.velocity);
   }
 
   private calculateAcceleration = (): void => {

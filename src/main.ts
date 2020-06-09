@@ -1,9 +1,9 @@
-import { Planet } from "./planet.js";
+import { PlanetList } from "./planetList.js";
 
 class GameWindow {
   private canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D;
-  private planet: Planet;
+  private planets: PlanetList;
 
   constructor() {
     let canvas = document.getElementById('canvas') as
@@ -18,7 +18,7 @@ class GameWindow {
 
     this.canvas = canvas;
     this.context = context;
-    this.planet = new Planet(10, 10, {x:0, y:0}, {x:0, y:0});
+    this.planets = new PlanetList();
   }
 
   private createUserEvents() {
@@ -34,7 +34,7 @@ class GameWindow {
   private redraw() {
     this.clear();
     this.context.beginPath();
-    this.planet.draw(this.context);
+    this.planets.draw(this.context);
     this.context.fill();
   }
 
@@ -52,7 +52,8 @@ class GameWindow {
   }
 
   private run: () => void = () => {
-    this.planet.move();
+    this.planets.processForces();
+    this.planets.move();
     this.redraw();
   }
 

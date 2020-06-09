@@ -1,4 +1,4 @@
-import { Planet } from "./planet.js";
+import { PlanetList } from "./planetList.js";
 class GameWindow {
     constructor() {
         this.pressEventHandler = (e) => {
@@ -13,7 +13,8 @@ class GameWindow {
             setInterval(this.run, 16);
         };
         this.run = () => {
-            this.planet.move();
+            this.planets.processForces();
+            this.planets.move();
             this.redraw();
         };
         let canvas = document.getElementById('canvas');
@@ -26,7 +27,7 @@ class GameWindow {
         context.lineWidth = 1;
         this.canvas = canvas;
         this.context = context;
-        this.planet = new Planet(10, 10, { x: 0, y: 0 }, { x: 0, y: 0 });
+        this.planets = new PlanetList();
     }
     createUserEvents() {
         let canvas = this.canvas;
@@ -38,7 +39,7 @@ class GameWindow {
     redraw() {
         this.clear();
         this.context.beginPath();
-        this.planet.draw(this.context);
+        this.planets.draw(this.context);
         this.context.fill();
     }
 }

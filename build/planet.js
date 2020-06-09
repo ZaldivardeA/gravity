@@ -1,4 +1,4 @@
-const G = 1;
+const G = .001;
 const getDistance = (distanceX, distanceY) => {
     let distance2 = (Math.pow(distanceX, 2)) + (Math.pow(distanceY, 2));
     return Math.sqrt(distance2);
@@ -33,6 +33,7 @@ export class Planet {
             this.force.y += forceY;
             otherPlanet.force.x -= forceX;
             otherPlanet.force.y -= forceY;
+            console.log(this.velocity);
         };
         this.calculateAcceleration = () => {
             this.acceleration.x = this.force.x / this.mass;
