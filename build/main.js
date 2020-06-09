@@ -1,4 +1,4 @@
-import { Planet } from "./planet";
+import { Planet } from "./planet.js";
 class GameWindow {
     constructor() {
         this.pressEventHandler = (e) => {
@@ -37,10 +37,10 @@ class GameWindow {
     }
     redraw() {
         this.clear();
+        this.context.beginPath();
         this.planet.draw(this.context);
         this.context.fill();
     }
 }
 let game = new GameWindow();
 game.start();
-//# sourceMappingURL=main.js.map

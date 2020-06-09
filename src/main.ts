@@ -1,9 +1,8 @@
-import { Planet } from "./planet";
+import { Planet } from "./planet.js";
 
 class GameWindow {
   private canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D;
-  private running: boolean;
   private planet: Planet;
 
   constructor() {
@@ -11,7 +10,7 @@ class GameWindow {
                  HTMLCanvasElement;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    let context = canvas.getContext("2d");
+    let context = canvas.getContext("2d") as CanvasRenderingContext2D;
     context.lineCap = 'round';
     context.lineJoin = 'round';
     context.strokeStyle = 'black';
@@ -34,6 +33,7 @@ class GameWindow {
 
   private redraw() {
     this.clear();
+    this.context.beginPath();
     this.planet.draw(this.context);
     this.context.fill();
   }
